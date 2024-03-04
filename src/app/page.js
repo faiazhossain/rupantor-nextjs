@@ -1,95 +1,66 @@
-import Image from "next/image";
+"use client";
 import styles from "./page.module.css";
+import { Provider } from "react-redux";
+import store from "../../redux/store";
+import { Layout } from "antd";
+import { Content, Footer, Header } from "antd/es/layout/layout";
+import Sider from "antd/es/layout/Sider";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <Provider store={store}>
+      <main className={styles.main}>
+        <Layout style={layoutStyle}>
+          <Header style={headerStyle}>
+            <h1>What is Rupantor?</h1>
+            <p>
+              A state of the art address normalizer for normalizing addresses
+            </p>
+          </Header>
+          <Layout>
+            <Content style={contentStyle}>Content</Content>
+            <Sider width="50%" style={siderStyle}>
+              Sider
+            </Sider>
+          </Layout>
+          <Footer style={footerStyle}>Footer</Footer>
+        </Layout>
+      </main>
+    </Provider>
   );
 }
+
+const headerStyle = {
+  textAlign: "center",
+  color: "#fff",
+  // height: 120,
+  // paddingInline: 48,
+  // lineHeight: "64px",
+  backgroundColor: "#4096ff",
+};
+
+const contentStyle = {
+  textAlign: "center",
+  // minHeight: 120,
+  // lineHeight: "120px",
+  color: "#fff",
+  backgroundColor: "#0958d9",
+};
+const siderStyle = {
+  textAlign: "center",
+  // lineHeight: "120px",
+  color: "#fff",
+  backgroundColor: "#1677ff",
+};
+const footerStyle = {
+  textAlign: "center",
+  color: "#fff",
+  backgroundColor: "#4096ff",
+};
+
+const layoutStyle = {
+  borderRadius: 8,
+  overflow: "hidden",
+  // width: "100%",
+  // maxWidth: "calc(100% - 8px)",
+};
