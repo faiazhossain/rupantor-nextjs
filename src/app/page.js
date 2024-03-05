@@ -2,28 +2,30 @@
 import styles from "./page.module.css";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
-import { Layout } from "antd";
+import { Col, Layout, Row } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
-import Sider from "antd/es/layout/Sider";
+import SearchComponent from "../../components/searchPanel/SearchComponent";
+import MapComponent from "../../components/mapPanel/MapComponent";
+import FormComponent from "../../components/searchPanel/FormComponent";
 
 export default function Home() {
   return (
     <Provider store={store}>
-      <main className={styles.main}>
+      <main>
         <Layout style={layoutStyle}>
-          <Header style={headerStyle}>
-            <h1>What is Rupantor?</h1>
-            <p>
-              A state of the art address normalizer for normalizing addresses
-            </p>
-          </Header>
           <Layout>
-            <Content style={contentStyle}>Content</Content>
-            <Sider width="50%" style={siderStyle}>
-              Sider
-            </Sider>
+            <Content style={contentStyle}>
+              <Row>
+                <Col sm={24} md={12}>
+                  <SearchComponent></SearchComponent>
+                  <FormComponent></FormComponent>
+                </Col>
+                <Col sm={24} md={12}>
+                  <MapComponent></MapComponent>
+                </Col>
+              </Row>
+            </Content>
           </Layout>
-          <Footer style={footerStyle}>Footer</Footer>
         </Layout>
       </main>
     </Provider>
@@ -32,11 +34,11 @@ export default function Home() {
 
 const headerStyle = {
   textAlign: "center",
-  color: "#fff",
+  color: "blue",
   // height: 120,
   // paddingInline: 48,
   // lineHeight: "64px",
-  backgroundColor: "#4096ff",
+  backgroundColor: "white",
 };
 
 const contentStyle = {
@@ -44,7 +46,7 @@ const contentStyle = {
   // minHeight: 120,
   // lineHeight: "120px",
   color: "#fff",
-  backgroundColor: "#0958d9",
+  backgroundColor: "#fff",
 };
 const siderStyle = {
   textAlign: "center",

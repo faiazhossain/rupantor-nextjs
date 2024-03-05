@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  search: [],
+  rupantorData: false,
 };
 
 const mapSlice = createSlice({
   name: "common",
   initialState,
   reducers: {
-    setSearch: (state, action) => {
-      state.search = action.payload;
+    setRupantorData: (state, action) => {
+      state.rupantorData = action.payload;
     },
   },
 });
 
-export const { setSearch } = mapSlice.actions;
+export const { setRupantorData } = mapSlice.actions;
 export default mapSlice.reducer;
