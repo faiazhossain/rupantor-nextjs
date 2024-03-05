@@ -6,9 +6,9 @@
 }
 
 .headline {
-  font-size: 120px;
+  font-size: 70px;
   text-transform: uppercase;
-  font-family: "Anta", sans-serif;
+  /* font-family: "Anta", sans-serif; */
   font-weight: 400;
   font-style: normal;
   letter-spacing: -2px;
@@ -23,4 +23,54 @@
 .headline:hover {
   font-variation-settings: "wght" 582;
   letter-spacing: 1px;
+}
+
+.marker-animation {
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(-45px);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    animation-timing-function: ease-in;
+    transform: translateY(-24px);
+  }
+
+  65% {
+    animation-timing-function: ease-in;
+    transform: translateY(-12px);
+  }
+
+  82% {
+    animation-timing-function: ease-in;
+    transform: translateY(-6px);
+  }
+
+  93% {
+    animation-timing-function: ease-in;
+    transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }

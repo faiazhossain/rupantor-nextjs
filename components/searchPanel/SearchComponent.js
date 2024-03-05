@@ -5,8 +5,10 @@ const { Search } = Input;
 import React, { useEffect, useState } from "react";
 import { getRupantorData } from "../../redux/actions/mainActions";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-
+import { useMap } from "react-map-gl/maplibre";
+import ModalContent from "./ModalContent";
 const SearchComponent = () => {
+  const { myMapA } = useMap();
   //hooks
   const dispatch = useAppDispatch();
   // states
@@ -16,7 +18,6 @@ const SearchComponent = () => {
   );
   const handleSearch = (e) => {
     dispatch(getRupantorData(e));
-    // getRupantorData(e);
     setIsLoading(true);
   };
   useEffect(() => {
@@ -25,9 +26,18 @@ const SearchComponent = () => {
     }
   }, [rupantorData]);
 
-  console.log(rupantorData, "faiaz");
+  useEffect(() => {
+    rupantorData?.geocoded_address?.longitude &&
+      myMapA.flyTo({
+        center: [
+          rupantorData?.geocoded_address?.longitude,
+          rupantorData?.geocoded_address?.latitude,
+        ],
+      });
+  }, [rupantorData]);
+  console.log(rupantorData, "Faiaz");
   return (
-    <div>
+    <div style={{ marginBottom: "20px" }}>
       <div style={{ marginBottom: "20px" }}>
         <Title className="headline">What is Rupantor?</Title>
         <Typography style={{ fontWeight: "bold", color: "#424769" }}>
@@ -53,9 +63,9 @@ const SearchComponent = () => {
               Try Rupantor for Free.
             </label>
             <Search
-              placeholder="input search text"
+              placeholder="Enter Address..."
               size="large"
-              allowClear
+              allowClear={true}
               enterButton
               onSearch={handleSearch}
               loading={isLoading}
