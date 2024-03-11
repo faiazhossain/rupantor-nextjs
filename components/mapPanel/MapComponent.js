@@ -17,8 +17,8 @@ const MapComponent = () => {
         zoom: 14,
       }}
       style={{
-        marginLeft: "20px",
-        width: "90%",
+        // marginLeft: "20px",
+        width: "98%",
         height: "82vh",
         marginTop: "30px",
       }}

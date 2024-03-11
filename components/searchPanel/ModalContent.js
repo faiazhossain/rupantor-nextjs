@@ -55,7 +55,7 @@ const ModalContent = () => {
         </Row>{" "}
         <Row style={{ marginBottom: "10px" }}>
           <Col style={{ fontWeight: "bold" }} span={12}>
-            Cofidence Score:
+            Confidence Score:
           </Col>
           <Col span={12}>
             <div

@@ -17,7 +17,7 @@ export default function Home() {
           <Layout style={layoutStyle}>
             <Layout>
               <Content style={contentStyle}>
-                <Row>
+                <Row gutter={10}>
                   <Col xs={24} sm={24} md={12}>
                     <SearchComponent></SearchComponent>
                     <FormComponent></FormComponent>
